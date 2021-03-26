@@ -12,14 +12,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function BasicTextFields() {
+export default function BasicTextFields(props) {
   const classes = useStyles();
 
   return (
     <form className={classes.root} noValidate autoComplete="off" className="form">
       <TextField id="standard-basic" label="Username" />
       <TextField id="standard-basic" label="Password" />
-      <Button variant="contained" color="primary">Login</Button>
+      <Button variant="contained" color="primary" onClick={props.handleLogin}>Login</Button>
     </form>
   );
 }

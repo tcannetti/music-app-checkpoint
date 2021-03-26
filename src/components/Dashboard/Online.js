@@ -2,7 +2,7 @@ import React from 'react';
 import Switch from '@material-ui/core/Switch';
 import { Typography } from '@material-ui/core';
 
-export default function Switches() {
+export default function Switches({online, setOnline}) {
   const [state, setState] = React.useState({
     checkedA: true,
     checkedB: true,
@@ -19,6 +19,7 @@ export default function Switches() {
       <Switch
         checked={state.checkedA}
         onChange={handleChange}
+        value={online}
         name="checkedA"
         inputProps={{ 'aria-label': 'secondary checkbox' }}
       />

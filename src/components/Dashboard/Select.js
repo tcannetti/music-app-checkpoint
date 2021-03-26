@@ -46,7 +46,7 @@ export default function OpenSelect({quality, setQuality}) {
             open={open}
             onClose={handleClose}
             onOpen={handleOpen}
-            value={qual}
+            value={quality}
             onChange={handleChange}
           >
             <MenuItem value={1}>Low</MenuItem>
