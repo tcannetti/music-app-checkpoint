@@ -5,15 +5,19 @@ import Select from './components/Dashboard/Select'
 import CompCard from './components/Card/Card'
 import Switches from './components/Dashboard/Online'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Typography } from '@material-ui/core';
 
 function App() {
   // For handling State
   const [loggedIn, setLoggedIn] = useState(false)
-  const [online, setOnline] = useState(true)
+  const [online, setOnline] = useState({
+       checkedA: false,
+       checkedB: true,
+   })
   const [volume, setVolume] = useState(30)
   const [quality, setQuality] = useState('2')
+  
 
   //Login Functionality 
   const handleLogin = () => {
@@ -42,7 +46,7 @@ function App() {
       )}
       {/* Notification messages */}
       <div className="notifications">
-        {online === false && <p>Your application is offline. You won't be able to share or stream music to other devices.</p>}
+        {online.checkedB === false ? <p>Your application is offline. You won't be able to share or stream music to other devices.</p> : null}
         {volume >= 80 && <p>Listening to music at a high volume can cause long term hearing loss!</p>}
         {quality =='1' && <p>Music quality is degraded. Increase quality if your connection allows it.</p>}
       </div>
