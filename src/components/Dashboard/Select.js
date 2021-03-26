@@ -23,7 +23,7 @@ export default function OpenSelect({quality, setQuality}) {
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
-    setQual(event.target.value);
+    setQuality(event.target.value);
   };
 
   const handleClose = () => {

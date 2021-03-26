@@ -21,10 +21,11 @@ function App() {
   }
 
   return (
+
     <div className="App">
       <Header />
       {loggedIn === true ? (
-        <div>
+        <div className="cards">
           <CompCard>
             <Switches online={online} setOnline={setOnline}/>
           </CompCard>
@@ -43,7 +44,7 @@ function App() {
       <div className="notifications">
         {online === false && <p>Your application is offline. You won't be able to share or stream music to other devices.</p>}
         {volume >= 80 && <p>Listening to music at a high volume can cause long term hearing loss!</p>}
-        {quality ==='1' && <p>Music quality is degraded. Increase quality if your connection allows it.</p>}
+        {quality =='1' && <p>Music quality is degraded. Increase quality if your connection allows it.</p>}
       </div>
     </div>
   );
