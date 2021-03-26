@@ -19,12 +19,9 @@ export default function MusicSlider({volume, setVolume}) {
   return (
     <div className={classes.root}>
       <Typography variant="h5">Master Volume</Typography>
-      <Typography id="discrete-slider" variant="subtitle2"gutterBottom>
-        Overrides all other sound settings of this application.
-      </Typography>
       <Slider
         onChange={(e, value) => setVolume(value)}
-        defaultValue={volume}
+        value={volume}
         getAriaValueText={valuetext}
         aria-labelledby="discrete-slider"
         valueLabelDisplay="auto"
