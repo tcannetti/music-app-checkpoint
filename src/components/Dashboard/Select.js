@@ -4,7 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import Button from '@material-ui/core/Button';
+import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   button: {
@@ -17,13 +17,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ControlledOpenSelect() {
+export default function OpenSelect({quality, setQuality}) {
   const classes = useStyles();
-  const [age, setAge] = React.useState('');
+  const [qual, setQual] = React.useState('');
   const [open, setOpen] = React.useState(false);
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setQual(event.target.value);
   };
 
   const handleClose = () => {
@@ -36,28 +36,24 @@ export default function ControlledOpenSelect() {
 
   return (
     <div>
-      <Button className={classes.button} onClick={handleOpen}>
-        Open the select
-      </Button>
-      <FormControl className={classes.formControl}>
-        <InputLabel id="demo-controlled-open-select-label">'Sound Quality'</InputLabel>
-        <Select
-          labelId="demo-controlled-open-select-label"
-          id="demo-controlled-open-select"
-          open={open}
-          onClose={handleClose}
-          onOpen={handleOpen}
-          value={quality}
-          onChange={handleChange}
-        >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={1}>Low</MenuItem>
-          <MenuItem value={2}>Standard</MenuItem>
-          <MenuItem value={3}>High</MenuItem>
-        </Select>
-      </FormControl>
+      <Typography variant="h5">Sound Quality</Typography>
+      <Typography variant="body2">Manually control the music quality in the event of poor connection.</Typography>
+        <FormControl className={classes.formControl}>
+          <InputLabel id="demo-controlled-open-select-label">Quality</InputLabel>
+          <Select
+            labelId="demo-controlled-open-select-label"
+            id="demo-controlled-open-select"
+            open={open}
+            onClose={handleClose}
+            onOpen={handleOpen}
+            value={qual}
+            onChange={handleChange}
+          >
+            <MenuItem value={1}>Low</MenuItem>
+            <MenuItem value={2}>Standard</MenuItem>
+            <MenuItem value={3}>High</MenuItem>
+          </Select>
+        </FormControl>
     </div>
   );
 }
