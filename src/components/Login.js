@@ -16,7 +16,7 @@ export default function BasicTextFields(props) {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="off" className="form">
+    <form className={classes.root} noValidate autoComplete="off">
       <TextField id="standard-basic" label="Username" />
       <TextField id="standard-basic" label="Password" />
       <Button variant="contained" color="primary" onClick={props.handleLogin}>Login</Button>
